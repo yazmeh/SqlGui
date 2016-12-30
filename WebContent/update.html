@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Update</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<div id="im">
+	<img alt="hitman" src="img/minions_header.jpg">
+</div>
+<div id="sidebar">
+	<table id="menu">
+		<tr>
+			<td id="opt"><a href="menu.html">Home</a></td>
+		</tr>
+		<tr>
+			<td id="opt"><a href="insert.html">Insert</a></td>
+		</tr>
+		<tr>
+			<td id="opt"><a href="delete.html">Delete</a></td>
+		</tr>
+		<tr>
+			<td id="opt"><a href="search.html">Search</a></td>
+		</tr>
+		<tr>
+			<td id="opt"><a href="view.jsp">View All</a></td>
+		</tr>
+	</table>
+</div >
+<div id="main">
+<h1>Update </h1>
+<form action="UServlet">
+<table id ="maint">
+		<tr>
+			<td>Id:</td><td><input type="text" name ="id"/></td>
+		</tr>
+		<tr>
+		<td>Name :</td><td> <input type="text" name="name"/></td>
+		</tr>
+		<tr>
+		<td>Salary :</td><td><input type="text" name="sal"></td>
+		</tr>
+		<tr>
+		<td><input type="Submit" value="Update" name="job" ></td><td><a href="menu.html"><input type="button" value="Back"></a></td>
+		</tr>
+		</table>
+</form>
+</div>
+</body>
+</html>

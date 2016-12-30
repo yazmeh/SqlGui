@@ -1,0 +1,91 @@
+@CHARSET "UTF-8";
+body
+{
+	background-image: url("../img/red.jpg");
+	
+}
+img
+{
+	height:inherit;
+	width:100%;
+}
+a:LINK
+{
+	color: blue;
+	text-decoration: none;
+}
+a:ACTIVE {
+	color: blue;
+	text-decoration: none;
+	
+}
+
+a:VISITED {
+	color:blue;
+	text-decoration: none;
+	
+}
+a:HOVER {
+	color:aqua;
+	text-decoration: none;
+}
+#menu
+{
+	width:200px;
+	height:300px;
+}
+#opt
+{
+	background-color: yellow;
+	text-align: center;
+	font-size: 20px;
+}
+#opt:HOVER
+{
+	background-color: red;
+	text-align: center;
+	font-size: 20px;
+}
+#im
+{
+	background-color:red; 
+	height: 300px;
+	float: top;	
+}
+#sidebar
+{
+	float: left;
+	
+	height: inherit;
+	
+	border-style: solid;
+}
+#maint
+{
+	;
+}
+#result
+{
+	width:175%;
+	text-align:center;
+	border-style: solid;
+	border-collapse: collapse;
+	margin-top: 30px;
+	margin-left: 50px;
+}
+#result th
+{
+	background-color:black;
+	border-style: solid;
+}
+#result td
+{
+	border-style: solid;
+	
+}
+#main
+{
+	color: #ffab91;
+	float:left	;
+	padding-left: 10px;
+}
