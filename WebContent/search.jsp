@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Search</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="validate.js"></script>
 </head>
 <body>
 <div id="im">
@@ -34,11 +35,11 @@
 <div id="main">
 <h1>Search </h1>
 
-<form action="SServlet">
+<form action="CServlet" name="myForm" onsubmit="return validateId()">
 <table id="maint">
 	<tr>
 		<td>Id : </td>
-		<td><input type="text" name ="id"/></td>
+		<td><input type="text" name ="id" placeholder="Enter Id" /></td>
 		<td><input type="Submit" value="Search" name="job"></td>
 		<td><a href="menu.html"><input type="button" value="Back"></a></td>
 	</tr>

@@ -2,7 +2,8 @@
 body
 {
 	background-image: url("../img/red.jpg");
-	
+	width:inherit;
+	height: inherit;
 }
 img
 {
@@ -62,7 +63,7 @@ a:HOVER {
 }
 #maint
 {
-	;
+	color: #ffab91;
 }
 #result
 {

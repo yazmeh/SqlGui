@@ -26,22 +26,26 @@ public class IServlet extends HttpServlet {
 			String ids = request.getParameter("id");
 			String nm= request.getParameter("name");
 			String sals =request.getParameter("sal");
-			try {
+			try { 
+				
+				request.setAttribute("sus", false);
 				int id =Integer.parseInt(ids);
 				float sal = Float.parseFloat(sals);
 				boolean x = q.insert(id, nm, sal);
 				request.setAttribute("sus", x);
 				if(x)
 				{	
-					request.setAttribute("id", id);
-					request.setAttribute("usr", nm);
-					request.setAttribute("sal", sal);
+					String dat[] = new String[3];
+					dat[0]=""+id;
+					dat[1]=nm;
+					dat[2]=""+sal;
+					request.setAttribute("r", dat);
 				}
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("insert.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("insertt.jsp");
 			rd.forward(request, response);
 		
 	}

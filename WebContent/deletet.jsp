@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="ex" uri="WEB-INF/dbtag.tld"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,13 +35,7 @@
 </div >
 <div id="main">
 <h1>Delete </h1>
-<%if((boolean)request.getAttribute("sus"))
-		{%>
-		<h3>Row Deleted of with id <%=request.getAttribute("id")%></h3>
-	<%} 
-	else
-	{%><h3>Id Not Found</h3>
-	<%} %>	
+<ex:Delete success="${requestScope.sus }" id="${requestScope.id}"/>
 <form action="CServlet" name="myForm" onsubmit="return validateId()">
 <table id="maint">
 	<tr>

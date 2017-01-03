@@ -23,9 +23,10 @@ public class DServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Queries q = new Queries();
-		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		int id = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("sus",false);
+		request.setAttribute("id", 0);
 		try {
 			boolean x = q.delete(id);
 			request.setAttribute("sus",x);
@@ -33,7 +34,7 @@ public class DServlet extends HttpServlet {
 			{
 				request.setAttribute("id", id);
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("delete.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("deletet.jsp");
 			rd.include(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

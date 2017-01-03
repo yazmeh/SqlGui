@@ -39,15 +39,18 @@ public class UServlet extends HttpServlet {
 		String nm= request.getParameter("name");
 		float sal = Float.parseFloat(request.getParameter("sal"));
 		try {
+			request.setAttribute("sus", false);
 			boolean x = q.updateAll(id, nm, sal);
 			request.setAttribute("sus", x);
 			if(x)
 			{	
-				request.setAttribute("id", id);
-				request.setAttribute("usr", nm);
-				request.setAttribute("sal", sal);
+				String dat[] = new String[3];
+				dat[0]=""+id;
+				dat[1]=nm;
+				dat[2]=""+sal;
+				request.setAttribute("r", dat);
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("update.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("updatet.jsp");
 			rd.include(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

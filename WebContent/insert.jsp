@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="validate.js"></script>
 </head>
 <body>
 
@@ -33,28 +34,25 @@
 </div >
 <div id="main">
 	<h1>Insert </h1>
-	<%
-	if(request.getAttribute("err")!=null)
-	{%>
-		<h4>Fill empty fields</h4>	
-	<% }
-	else if((boolean)request.getAttribute("sus"))
-		{%>
-		<h3>Row Inserted of User <%=request.getAttribute("usr")%> with id <%=request.getAttribute("id")%> and Salary <%=request.getAttribute("sal")%></h3>
-	<%} 
-	else
+	
+	<% if(request.getAttribute("sus")!=null && (boolean)request.getAttribute("sus"))
+		{
+			String dat[]=(String[])request.getAttribute("r");%>
+		<h3>Row Inserted of User <%=dat[1]%> with id <%=dat[0]%> and Salary <%=dat[2]%></h3>
+		<%} 
+			else
 	{%><h3>Entry Already Exists</h3>
 	<%} %>	
-	<form action="IServlet">
+	<form action="CServlet" name="myForm" onsubmit="return validateForm1()">
 		<table id ="maint">
 		<tr>
-			<td>Id:</td><td><input type="text" name ="id"/></td>
+			<td>Id:</td><td><input type="text" name ="id" placeholder="Id"/></td>
 		</tr>
 		<tr>
-		<td>Name :</td><td> <input type="text" name="name"/></td>
+		<td>Name :</td><td> <input type="text" name="name" placeholder="Name"/></td>
 		</tr>
 		<tr>
-		<td>Salary :</td><td><input type="text" name="sal"></td>
+		<td>Salary :</td><td><input type="text" name="sal" placeholder="Ente"></td>
 		</tr>
 		<tr>
 		<td><input type="Submit" value="Insert" name="job" ></td><td><a href="menu.html"><input type="button" value="Back"></a></td>

@@ -3,6 +3,7 @@
 <%@page import="pack21.Queries" %>
 <%@page import="pack2.Connector" %>
 <%@page import="java.sql.SQLException" %>
+<%@ taglib prefix="ex" uri="WEB-INF/dbtag.tld"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,22 +38,7 @@
 </div >
 <div id="main">
 <h2>View All</h2>
-		<%!Queries q = new Queries();%>
-		<%! String[][] an= null;%> 
-		<% new Connector();
-			an = q.viewAll();%>
-		<form name="myForm" action="VDServlet" >
-		<table id="result"><tr><th>Id</th><th>Name</th><th>Salary</th><tr>
-		<% for(int i=0;i<an.length;i++){ %>
-			<tr>
-				<td><%=an[i][0]%></td>
-				<td><%=an[i][1]%></td>
-				<td><%=an[i][2]%></td>
-				<td><input type="Submit" onclick="del(<%=an[i][0]%>)"  name="sub" value="Delete" /></td>
-			</tr>
-		<%}%>
-		</table>
-		</form>
+		<ex:View/>
 		<br>
 		<br>
 		<a href="menu.html"><input type="button" value="Back"></a>

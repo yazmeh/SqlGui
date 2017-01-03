@@ -32,7 +32,7 @@ public class SServlet extends HttpServlet {
 			{
 				request.setAttribute("r",an);
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("searcht.jsp");
 			rd.include(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

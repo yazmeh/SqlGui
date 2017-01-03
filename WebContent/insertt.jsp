@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="ex" uri="WEB-INF/dbtag.tld"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Delete</title>
+<title>Insert</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="validate.js"></script>
 </head>
@@ -19,7 +20,7 @@
 			<td id="opt"><a href="menu.html">Home</a></td>
 		</tr>
 		<tr>
-			<td id="opt"><a href="insert.html">Insert</a></td>	
+			<td id="opt"><a href="delete.html">Delete</a></td>
 		</tr>
 		<tr>
 			<td id="opt"><a href="update.html">Update</a></td>
@@ -33,24 +34,26 @@
 	</table>
 </div >
 <div id="main">
-<h1>Delete </h1>
-<%if((boolean)request.getAttribute("sus"))
-		{%>
-		<h3>Row Deleted of with id <%=request.getAttribute("id")%></h3>
-	<%} 
-	else
-	{%><h3>Id Not Found</h3>
-	<%} %>	
-<form action="CServlet" name="myForm" onsubmit="return validateId()">
-<table id="maint">
-	<tr>
-		<td>Id : </td>
-		<td><input type="text" name ="id" placeholder="Enter Id"/></td>
-		<td><input type="Submit" value="Delete" name="job"></td>
-		<td><a href="menu.html"><input type="button" value="Back"></a></td>
-	</tr>
-</table>
-</form>
+	<h1>Insert </h1>
+	
+	<ex:Insert detail="${requestScope.r}" success="${requestScope.sus}"/>		
+		
+	<form action="CServlet" name="myForm" onsubmit="return validateForm1()">
+		<table id ="maint">
+		<tr>
+			<td>Id:</td><td><input type="text" name ="id" placeholder="Id"/></td>
+		</tr>
+		<tr>
+		<td>Name :</td><td> <input type="text" name="name" placeholder="Name"/></td>
+		</tr>
+		<tr>
+		<td>Salary :</td><td><input type="text" name="sal" placeholder="Ente"></td>
+		</tr>
+		<tr>
+		<td><input type="Submit" value="Insert" name="job" ></td><td><a href="menu.html"><input type="button" value="Back"></a></td>
+		</tr>
+		</table>
+	</form>
 </div>
 </body>
 </html>

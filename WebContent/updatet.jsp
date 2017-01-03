@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="ex" uri="WEB-INF/dbtag.tld"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,14 +35,7 @@
 </div >
 <div id="main">
 <h2>Update</h2>
-<% if(request.getAttribute("sus")!=null && (boolean)request.getAttribute("sus"))
-		{
-			String dat[]=(String[])request.getAttribute("r");%>
-		<h3>Row Inserted of User <%=dat[1]%> with id <%=dat[0]%> and Salary <%=dat[2]%></h3>
-		<%} 
-			else
-	{%><h3>Id not found</h3>
-	<%} %>	
+<ex:Update detail="${requestScope.r}" success="${requestScope.sus}"/>
 <form action="CServlet" name="myForm" onsubmit="return validateForm1()">
 <table id ="maint">
 		<tr>

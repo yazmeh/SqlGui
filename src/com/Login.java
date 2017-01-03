@@ -1,7 +1,6 @@
 package com;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import pack2.Connector;
 import pack21.Queries;
@@ -25,7 +25,6 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		new Connector(); 
 		Queries q =new Queries();
-		PrintWriter out= response.getWriter();
 		response.setContentType("text/html");
 		String usr = request.getParameter("userName");
 		String pwd = request.getParameter("pwd");
@@ -33,14 +32,15 @@ public class Login extends HttpServlet {
 		try {
 			if(q.check(usr, pwd))
 			{
+				HttpSession session = request.getSession();
 				RequestDispatcher rq = request.getRequestDispatcher("menu.html");
 				rq.forward(request, response);
 			}
 			else
 			{
-				out.println("<h4>Login Failed.Try Again</h4>");
-				RequestDispatcher rq = request.getRequestDispatcher("Index.html");
-				rq.include(request, response);
+				request.setAttribute("err",1);
+				RequestDispatcher rq = request.getRequestDispatcher("index.jsp");
+				rq.forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

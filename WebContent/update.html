@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Update</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="validate.js"></script>
 </head>
 <body>
 
@@ -31,16 +32,16 @@
 </div >
 <div id="main">
 <h1>Update </h1>
-<form action="UServlet">
+<form action="CServlet" name="myForm" onsubmit="return validateForm1()">
 <table id ="maint">
 		<tr>
-			<td>Id:</td><td><input type="text" name ="id"/></td>
+			<td>Id:</td><td><input type="text" name ="id" placeholder="Enter Id"/></td>
 		</tr>
 		<tr>
-		<td>Name :</td><td> <input type="text" name="name"/></td>
+		<td>Name :</td><td> <input type="text" name="name" placeholder="Enter Name"/></td>
 		</tr>
 		<tr>
-		<td>Salary :</td><td><input type="text" name="sal"></td>
+		<td>Salary :</td><td><input type="text" name="sal" placeholder="Enter Salary"></td>
 		</tr>
 		<tr>
 		<td><input type="Submit" value="Update" name="job" ></td><td><a href="menu.html"><input type="button" value="Back"></a></td>
